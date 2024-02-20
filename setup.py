@@ -24,8 +24,8 @@ setup(
         "inflection==0.5.1",
         "pyparsing==3.0.9",
         "pyyaml",
-        "snowflake-connector-python==3.5.0",
-        "snowflake-snowpark-python==1.11.1",
+        "snowflake-connector-python>=3.5.0",
+        "snowflake-snowpark-python>=1.11.1",
         "pygithub==1.55",
     ],
     extras_require={
