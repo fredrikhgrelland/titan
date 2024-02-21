@@ -334,10 +334,11 @@ PRIVS_FOR_RESOURCE_TYPE = {
 
 
 def priv_for_principal(principal: URN, priv: str):
-    if principal.resource_type not in PRIVS_FOR_RESOURCE_TYPE:
-        # raise Exception(f"Unsupported resource type: {principal.resource_type}")
+    try: 
+        return PRIVS_FOR_RESOURCE_TYPE[principal.resource_type](priv)
+    except ValueError as e:
+        print(e) 
         return None
-    return PRIVS_FOR_RESOURCE_TYPE[principal.resource_type](priv)
 
 
 CREATE_PRIV_FOR_RESOURCE_TYPE = {
