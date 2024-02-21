@@ -12,11 +12,13 @@ Keyword = pp.CaselessKeyword
 Literal = pp.CaselessLiteral
 
 Identifier = pp.Word(pp.alphanums + "_", pp.alphanums + "_$") | pp.dbl_quoted_string
+EmailIdentifier = pp.Regex(r"[^@]+@[^@]+\.[^@]+")
 FullyQualifiedIdentifier = (
     pp.delimited_list(Identifier, delim=".", min=4, max=4)
     ^ pp.delimited_list(Identifier, delim=".", min=3, max=3)
     ^ pp.delimited_list(Identifier, delim=".", min=2, max=2)
     ^ Identifier
+    ^ EmailIdentifier
 )
 
 StringLiteral = pp.QuotedString("'", multiline=False, unquote_results=True) | pp.QuotedString(
