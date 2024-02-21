@@ -297,7 +297,7 @@ def _fetch_remote_state(session, manifest):
     state = {}
     urns = set(manifest["_urns"].copy())
 
-    session.cursor().execute("USE ROLE ACCOUNTADMIN")
+    # session.cursor().execute("USE ROLE ACCOUNTADMIN")
 
     for urn_str, _data in manifest.items():
         if urn_str.startswith("_"):
